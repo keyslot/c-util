@@ -1,4 +1,2 @@
-# Buscar la frecuencia de un subvector 
-
+# Operaciones con vectores char. Libre uso de Bibliotecas C.
 Funciones de utlilad.
-Operaciones con vectores char. 
