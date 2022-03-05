@@ -1,5 +1,6 @@
 /* *
- * Lista circular,  @keyslot  
+ * Lista express! 
+ * @keyslot  
  * */
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,17 +51,14 @@ destruirLista(Lista **ptr)
 {	
 	/* exit if !ptr || !*ptr  */
 	Nodo *aux = NULL;
-	Nodo *existe = (*ptr)->raiz->sig;
+	Nodo *existe = (*ptr)->raiz;
 	printf("Nodos: %d\n",(*ptr)->nodos);
         while(existe){
 	      aux = existe->sig;
 	      demuestra(*ptr,existe,"liberado");
               free(existe);
-	      if(aux == (*ptr)->raiz) 
-		 break;
 	      existe = aux;
 	}
-	demuestra(*ptr,(*ptr)->raiz,"liberado");
 	printf("Lista %p destruida!\n",*ptr);
         free(*ptr);
 	*ptr = NULL;
@@ -73,6 +71,7 @@ agregarNodo(Lista **ptr,int dato)
 	/* exit if !nuevo */
 	nuevo->dato = dato;
 	nuevo->id = (*ptr)->nodos++;
+	/* expres: */
 	nuevo->sig = (*ptr)->raiz; 
 	(*ptr)->raiz = nuevo; 
 	demuestra(*ptr,nuevo,"creado");
